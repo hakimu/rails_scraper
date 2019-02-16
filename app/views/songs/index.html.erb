@@ -6,6 +6,9 @@
   <p> Yep, there are <%= @songs.count %>  songs that are in the db</p>
 <% end %>
 
+<p>The first song is <%= @songs.first.title %></p>
+<p>The last song is <%= @songs.last.title %> and was added <%= @songs.last.updated_at %> </p>
+
 
 <%= link_to "Create Song List", new_song_path %>
 

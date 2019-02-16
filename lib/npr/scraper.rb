@@ -15,6 +15,13 @@ module NPR
       Nokogiri::HTML(scrape_page)
     end
 
+    def parse_title_artist
+      song = {}
+      parse_scraped_page.css('.song-meta-wrap').map do |title, artist|
+        puts title.element_children
+      end
+    end
+
     def parse_artist
       artists = []
       parse_scraped_page.css('.song-meta-artist').map do |artist|
@@ -33,7 +40,7 @@ module NPR
 
 end
 
-
+puts NPR::Scraper.new.parse_artist
 
 
 
