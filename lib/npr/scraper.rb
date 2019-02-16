@@ -1,6 +1,5 @@
 require 'json'
 require 'nokogiri'
-require 'pry'
 require 'httparty'
 require 'ostruct'
 
