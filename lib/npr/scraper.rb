@@ -1,14 +1,13 @@
 require 'json'
 require 'nokogiri'
 require 'httparty'
-require 'ostruct'
 
 module NPR
   class NPR::Scraper
     def call
       songs = []
       parse_artist.zip parse_song_title.each do |artist,title|
-       songs << OpenStruct.new(artist: artist, title: title)
+       songs << { artist: artist, title: title }
       end
       songs 
     end
@@ -40,7 +39,5 @@ module NPR
     end
   end
 end
-
-
 
 
