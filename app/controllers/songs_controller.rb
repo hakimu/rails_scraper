@@ -5,50 +5,18 @@ class SongsController < ApplicationController
   # GET /songs.json
   def index
     @songs = Song.all
+    render json: @songs
   end
 
   # GET /songs/1
   # GET /songs/1.json
   def show
-  end
-
-  # GET /songs/new
-  def new
-    # @song = Song.new
-    @song = Song.grab_parsed_artist
-    @title = Song.grab_parsed_title
+    render json: @song
   end
 
   # GET /songs/1/edit
   def edit
   end
-
-  # POST /songs
-  # POST /songs.json
-  def create
-    titles = Song.grab_parsed_title
-    artists = Song.grab_parsed_artist
-    titles.zip artists.each do |title,artist|
-      song = Song.new
-      song.title = title
-      song.artist = artist
-      song.save
-    end
-  end
-
-
-    # @song = Song.new(song_params)
-
-    # respond_to do |format|
-    #   if @song.save
-    #     format.html { redirect_to @song, notice: 'Song was successfully created.' }
-    #     format.json { render :show, status: :created, location: @song }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @song.errors, status: :unprocessable_entity }
-    #   end
-    # end
- 
 
   # PATCH/PUT /songs/1
   # PATCH/PUT /songs/1.json
