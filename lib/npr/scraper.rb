@@ -2,9 +2,20 @@ require 'json'
 require 'nokogiri'
 require 'pry'
 require 'httparty'
+require 'ostruct'
 
 module NPR
   class NPR::Scraper
+    def call
+      songs = []
+      parse_artist.zip parse_song_title.each do |artist,title|
+       songs << OpenStruct.new(artist: artist, title: title)
+      end
+      songs 
+    end
+
+    private
+
     def scrape_page
       HTTParty.get('http://www.npr.org/programs/morning-edition/')
     end
@@ -30,6 +41,7 @@ module NPR
     end
   end
 end
+
 
 
 
