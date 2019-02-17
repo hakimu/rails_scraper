@@ -39,5 +39,3 @@ module NPR
     end
   end
 end
-
-
