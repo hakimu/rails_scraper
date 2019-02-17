@@ -7,7 +7,7 @@ module NPR
     def call
       songs = []
       parse_artist.zip parse_song_title.each do |artist,title|
-       songs << { artist: artist, title: title }
+       songs << { artist: artist, title: title, broadcast_date: parse_broadcast_date }
       end
       songs 
     end
@@ -20,6 +20,10 @@ module NPR
 
     def parse_scraped_page
       Nokogiri::HTML(scrape_page)
+    end
+
+    def parse_broadcast_date
+      parse_scraped_page.at('time[datetime]')['datetime']
     end
 
     def parse_artist
