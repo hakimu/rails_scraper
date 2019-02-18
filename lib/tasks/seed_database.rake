@@ -11,3 +11,8 @@ namespace :songs do
   end
 end
 
+def song_previously_saved?(current_date)
+  last_saved_date = Song.last.broadcast_date ||= current_date
+  last_saved_date == current_date ? true : false
+end
+
