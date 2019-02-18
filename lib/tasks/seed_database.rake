@@ -15,4 +15,3 @@ def song_previously_saved?(current_date)
   last_saved_date = Song.last.broadcast_date
   last_saved_date == Date.parse(current_date) ? true : false
 end
-
