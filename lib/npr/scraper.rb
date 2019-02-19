@@ -4,10 +4,11 @@ require 'httparty'
 
 module NPR
   class NPR::Scraper
-    def call
+   
+    def call  
       songs = []
-      parse_artist.zip parse_song_title.each do |artist,title|
-       songs << { artist: artist, title: title, broadcast_date: parse_broadcast_date }
+      parse_title_artist.each do |song|
+        songs << { title: song[:title], artist: song[:artist], broadcast_date: parse_broadcast_date }
       end
       songs 
     end
@@ -26,20 +27,12 @@ module NPR
       parse_scraped_page.at('time[datetime]')['datetime']
     end
 
-    def parse_artist
-      artists = []
-      parse_scraped_page.css('.song-meta-artist').each do |artist|
-        artists << artist.text
+    def parse_title_artist
+      songs = []
+      parse_scraped_page.css('.song-meta-wrap').each do |song|
+        songs << { title: song.css('.song-meta-title').text, artist: song.css('.song-meta-artist').text}
       end
-      artists
-    end
-
-    def parse_song_title
-    	song_titles = []
-    	parse_scraped_page.css('.song-meta-title').each do |title|
-    	  song_titles << title.text
-    	end
-      song_titles
+      songs
     end
   end
 end
