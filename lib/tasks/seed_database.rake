@@ -1,3 +1,5 @@
+require 'tasks/newrelic'
+
 namespace :songs do
   desc  'Rake task to add NPR songs to database'
   task :database => :environment do
