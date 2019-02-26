@@ -31,6 +31,7 @@ gem 'pry','0.9.10'
 gem 'whenever'
 gem 'newrelic_rpm'
 gem 'bundler','1.17.3'
+gem 'rspec-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
