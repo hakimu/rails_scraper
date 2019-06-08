@@ -31,7 +31,7 @@ gem 'pry','0.9.10'
 gem 'whenever'
 gem 'newrelic_rpm'
 gem 'bundler','1.17.3'
-gem 'rspec-rails'
+#gem 'rspec-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -45,6 +45,8 @@ gem 'rspec-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.6.0'
+  gem 'factory_bot_rails', '~>4.10.0'
 end
 
 group :development do
