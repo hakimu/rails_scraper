@@ -5,9 +5,15 @@ RSpec.describe Song, type: :model do
     song = create(:song) 
     expect(song).to be_valid
   end
-  
-  it 'is not valid if there is not artist' do
-    song = create(:song, artist: nil)
-    expect(song).to_not be_valid
-  end 
+  it 'is able to have likes' do
+    song = create(:song)
+    create(:like, song_id: song.id)
+    expect(song.likes.count).to eq(1)
+  end
+  it 'is able to have multiple likes' do
+    song = create(:song)
+    create(:like, song_id: song.id)
+    create(:like, song_id: song.id)
+    expect(song.likes.count).to eq(2)
+  end
 end
