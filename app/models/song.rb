@@ -2,7 +2,7 @@ class Song < ActiveRecord::Base
   has_many :likes 
   belongs_to :rating
   belongs_to :user
-
+  
   def self.week_of_songs
     where("broadcast_date < ?", 5.days.ago)
   end

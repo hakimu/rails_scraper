@@ -6,6 +6,7 @@ require_relative "../lib/errors"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+Dotenv::Railtie.load
 
 module SongScraper
   class Application < Rails::Application
