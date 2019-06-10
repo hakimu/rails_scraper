@@ -7,6 +7,6 @@ class Rating < ActiveRecord::Base
   
   def check_admin_before_create
     admin_key = ENV["MY_API_KEY"]
-    raise StandardError unless admin_key 
+    raise CannotCreateRatingError.new('Not authorized') unless admin_key 
   end
 end

@@ -1,0 +1,1 @@
+class CannotCreateRatingError < StandardError; end
