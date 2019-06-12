@@ -1,8 +1,9 @@
 class Song < ActiveRecord::Base
-  has_many :likes 
-  belongs_to :rating
-  belongs_to :user
-  
+  has_many :ratings
+  has_many :users, through: :ratings
+  has_many :likes
+  has_many :users, through: :likes
+
   def self.week_of_songs
     where("broadcast_date < ?", 5.days.ago)
   end

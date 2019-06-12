@@ -1,6 +1,6 @@
 class Rating < ActiveRecord::Base
-  has_many :songs
-  has_many :users, through: :songs
+  belongs_to :song
+  belongs_to :user
   validates :star, presence: true
   validates :star, inclusion: { in: [1,2,3,4,5], message: 'Star should be 1-5.' }
 
