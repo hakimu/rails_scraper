@@ -8,9 +8,11 @@ class Song < ActiveRecord::Base
     where("broadcast_date < ?", 5.days.ago)
   end
 
-  def self.average_stars(id)
-    ratings = Song.find(id).ratings
-    ratings.map(&:star).reduce(:+) / ratings.count
+  def average_stars
+    if self.ratings.present?
+      ratings = self.ratings
+      ratings.map(&:star).reduce(:+) / ratings.count
+    end
   end
 
   #scope :week_of_songs, -> { where(broadcast_date: Date.current..(Date.current - 7)) }
