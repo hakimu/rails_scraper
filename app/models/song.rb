@@ -11,7 +11,7 @@ class Song < ActiveRecord::Base
   def average_stars
     if self.ratings.present?
       ratings = self.ratings
-      ratings.map(&:star).reduce(:+) / ratings.count
+      (ratings.map(&:star).reduce(:+) / ratings.count).round(1)
     end
   end
 

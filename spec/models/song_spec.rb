@@ -7,13 +7,15 @@ RSpec.describe Song, type: :model do
   end
   it 'is able to have likes' do
     song = create(:song)
-    create(:like, song_id: song.id)
+    user = create(:user)
+    create(:like, song_id: song.id, user_id: user.id)
     expect(song.likes.count).to eq(1)
   end
   it 'is able to have multiple likes' do
     song = create(:song)
-    create(:like, song_id: song.id)
-    create(:like, song_id: song.id)
+    user = create(:user)
+    create(:like, song_id: song.id, user_id: user.id)
+    create(:like, song_id: song.id, user_id: user.id)
     expect(song.likes.count).to eq(2)
   end
   context 'when given multiple ratings' do
@@ -22,7 +24,7 @@ RSpec.describe Song, type: :model do
       create(:rating, star: 1, song_id: song.id)
       create(:rating, star: 1, song_id: song.id)
       create(:rating, star: 5, song_id: song.id)
-      expect(song.average_stars).to eq(2)
+      expect(song.average_stars).to eq(2.3)
     end
   end
   context 'when a Song has no ratings' do

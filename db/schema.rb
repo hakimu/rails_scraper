@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190612153013) do
+ActiveRecord::Schema.define(version: 20190616061829) do
 
   create_table "likes", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 20190612153013) do
   add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
   create_table "ratings", force: :cascade do |t|
-    t.integer  "star"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.decimal  "star",       precision: 2, scale: 1
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.integer  "song_id"
     t.integer  "user_id"
   end

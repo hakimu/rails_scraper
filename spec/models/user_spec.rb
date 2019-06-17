@@ -13,7 +13,9 @@ RSpec.describe User, type: :model do
   end
   it 'is able to have a Song associated with a User' do
     user = create(:user)
-    create(:song, user_id: user.id)  
+    song = create(:song)
+    rating = create(:rating, user_id: user.id, song_id: song.id) 
+    binding.pry
     expect(user.songs.count).to eq(1)
   end
 end
