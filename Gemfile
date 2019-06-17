@@ -2,9 +2,10 @@ source 'https://rubygems.org'
 
 gem 'dotenv-rails', groups: [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '4.2.11'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'rack', '>= 1.6.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -26,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'hirb'
 
 gem 'httparty'
-gem 'nokogiri'
+gem 'nokogiri', '>=1.8.5'
 gem 'pry','0.9.10'
 gem 'whenever'
 gem 'newrelic_rpm'
@@ -41,6 +42,7 @@ gem 'bundler','1.17.3'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'sprockets', '>= 3.7.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
