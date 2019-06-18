@@ -43,12 +43,6 @@ ActiveRecord::Schema.define(version: 20190616061829) do
     t.date     "broadcast_date"
   end
 
-  create_table "test", id: false, force: :cascade do |t|
-    t.integer "ID",              null: false
-    t.string  "NAME", limit: 20, null: false
-    t.integer "age"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "email"
