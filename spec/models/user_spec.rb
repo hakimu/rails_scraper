@@ -15,7 +15,6 @@ RSpec.describe User, type: :model do
     user = create(:user)
     song = create(:song)
     rating = create(:rating, user_id: user.id, song_id: song.id) 
-    binding.pry
-    expect(user.songs.count).to eq(1)
+    expect(user.ratings.count).to eq(1)
   end
 end
