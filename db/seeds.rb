@@ -6,9 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
-
+User.delete_all
 1000.times do
-  User.create(username: Faker::Internet.user_name, email: Faker::Internet.email)
+  user = User.new(username: Faker::Internet.user_name, email: Faker::Internet.email)
+  user.songs << Song.where(id: Array.new(rand(1..100)) { rand(1..1000) }) 
+  user.save
   print '.'
 end
 
