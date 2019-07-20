@@ -49,6 +49,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.6.0'
   gem 'factory_bot_rails', '~>4.10.0'
+  gem 'faker'
 end
 
 group :development do
