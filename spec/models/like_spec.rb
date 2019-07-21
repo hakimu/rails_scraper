@@ -16,6 +16,22 @@ RSpec.describe Like, type: :model do
         create(:like, song_id: song.id, user_id: user.id)
         expect(song.likes.count).to eq(2)
       end  
+      it 'calculates the Song with the top likes' do
+        user = create(:user)
+        popular_song = create(:song)
+        moderately_popular_song = create(:song, title: 'Get Down')
+        unpopular_song = create(:song, title: 'The Factory')
+        100.times do |i|
+          user = create(:user, username: "user_#{i}", email: "my_#{i}@example.com")
+          create(:like, song_id: popular_song.id, user_id: user.id)
+        end
+        10.times do |i|
+          user = create(:user, username: "user_#{i}", email: "my_#{i}@example.com")
+          create(:like, song_id: moderately_popular_song.id, user_id: user.id)
+        end
+        create(:like, song_id: unpopular_song.id, user_id: user.id)
+        expect(Like.top_likes).to eq({'651' => 100, 'Get Down' => 10, 'The Factory' => 1}) 
+      end
     end
     context 'when given incorrect attributes' do
       it 'is invalid without a User' do
