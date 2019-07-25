@@ -30,7 +30,7 @@ RSpec.describe Like, type: :model do
           create(:like, song_id: moderately_popular_song.id, user_id: user.id)
         end
         create(:like, song_id: unpopular_song.id, user_id: user.id)
-        expect(Like.top_likes).to eq({'651' => 100, 'Get Down' => 10, 'The Factory' => 1}) 
+        expect(Like.top_likes).to eq([['651', 100], ['Get Down', 10], ['The Factory', 1]]) 
       end
     end
     context 'when given incorrect attributes' do
