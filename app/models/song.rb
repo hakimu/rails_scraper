@@ -26,4 +26,9 @@ class Song < ActiveRecord::Base
   def self.songs_by_artist(artist)
     where("artist LIKE ?", "%#{artist}%").map { |song| song.title }
   end
+
+  def self.top_ratings(star=3, rank=10)
+    # refactor to remove use keyword args or opts hash
+    self.joins(:ratings).where("ratings.star > ?", star).group(:title).count.sort_by {|k,v| v}.reverse.take(rank)
+  end
 end

@@ -33,4 +33,15 @@ RSpec.describe Song, type: :model do
       expect { song.average_stars }.to_not raise_error
     end
   end
+  describe '#top_ratings' do
+    it 'calculates the top ratings' do
+      user = create(:user)
+      first_song = create(:song, title: 'First Song')
+      second_song = create(:song, title: 'Second Song')
+      create(:rating, star: 5, song_id: first_song.id, user_id: user.id) 
+      create(:rating, star: 3, song_id: first_song.id, user_id: user.id)
+      create(:rating, star: 1, song_id: second_song.id, user_id: user.id)
+      expect(Song.top_ratings).to eq([['First Song', 1]])
+    end
+  end
 end
