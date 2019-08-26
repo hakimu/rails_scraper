@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'dotenv-rails', groups: [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.11'
+gem 'rails'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.3.12'
 gem 'rack', '>= 1.6.11'
@@ -14,6 +14,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'webpacker'
+gem 'react-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -31,7 +33,7 @@ gem 'nokogiri', '>=1.8.5'
 gem 'pry','0.9.10'
 gem 'whenever'
 gem 'newrelic_rpm'
-gem 'bundler','1.17.3'
+gem 'bundler'
 #gem 'rspec-rails'
 
 # Use ActiveModel has_secure_password

@@ -1,3 +1,5 @@
 == README
 
 To do...
+Added react-rails
+Start client with `bin/webpack-dev-server`
