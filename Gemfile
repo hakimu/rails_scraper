@@ -29,7 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'hirb'
 
 gem 'httparty'
-gem 'nokogiri', '>=1.8.5'
+gem 'nokogiri', '1.10.4'
 gem 'pry','0.9.10'
 gem 'whenever'
 gem 'newrelic_rpm'

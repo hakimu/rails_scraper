@@ -232,7 +232,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   newrelic_rpm
-  nokogiri (>= 1.8.5)
+  nokogiri (= 1.10.4)
   pry (= 0.9.10)
   rack (>= 1.6.11)
   rails
