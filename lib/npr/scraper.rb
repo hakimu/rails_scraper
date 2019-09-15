@@ -1,16 +1,17 @@
+# frozen_string_literal: true
+
 require 'json'
 require 'nokogiri'
 require 'httparty'
 
 module NPR
   class NPR::Scraper
-   
-    def call  
+    def call
       songs = []
       parse_title_artist.each do |song|
         songs << { title: song[:title], artist: song[:artist], broadcast_date: parse_broadcast_date }
       end
-      songs 
+      songs
     end
 
     private
@@ -30,7 +31,7 @@ module NPR
     def parse_title_artist
       songs = []
       parse_scraped_page.css('.song-meta-wrap').each do |song|
-        songs << { title: song.css('.song-meta-title').text, artist: song.css('.song-meta-artist').text}
+        songs << { title: song.css('.song-meta-title').text, artist: song.css('.song-meta-artist').text }
       end
       songs
     end

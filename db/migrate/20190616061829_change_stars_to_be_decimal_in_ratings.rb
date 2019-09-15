@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeStarsToBeDecimalInRatings < ActiveRecord::Migration
   def change
     change_column :ratings, :star, :decimal, precision: 2, scale: 1

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Rating, type: :model do
@@ -5,7 +7,7 @@ RSpec.describe Rating, type: :model do
     context 'when given valid attributes' do
       it 'creates a valid Rating' do
         rating = build(:rating)
-        expect { rating.save }.to change { Rating.count }.by(1) 
+        expect { rating.save }.to change { Rating.count }.by(1)
       end
     end
     context 'when given invalid attributes' do
@@ -27,7 +29,7 @@ RSpec.describe Rating, type: :model do
         it 'does not save a Rating' do
           rating = build(:rating, star: 99)
           rating.save
-          expect(rating.errors[:star]).to include('Star should be 1-5.')  
+          expect(rating.errors[:star]).to include('Star should be 1-5.')
         end
       end
     end

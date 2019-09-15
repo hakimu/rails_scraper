@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddUserToSongs < ActiveRecord::Migration
   def change
     add_reference :songs, :user, index: true, foreign_key: true

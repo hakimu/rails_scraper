@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails', groups: %i[development test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.3.12'
 gem 'rack', '>= 1.6.11'
+gem 'sqlite3', '~> 1.3.12'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -14,8 +16,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'webpacker'
 gem 'react-rails'
+gem 'webpacker'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -28,13 +30,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'hirb'
 
-gem 'httparty'
-gem 'nokogiri', '1.10.4'
-gem 'pry','0.9.10'
-gem 'whenever'
-gem 'newrelic_rpm'
 gem 'bundler'
-#gem 'rspec-rails'
+gem 'httparty'
+gem 'newrelic_rpm'
+gem 'nokogiri', '1.10.4'
+gem 'pry', '0.9.10'
+gem 'whenever'
+# gem 'rspec-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -49,9 +51,9 @@ gem 'sprockets', '>= 3.7.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'rspec-rails', '~> 3.6.0'
   gem 'factory_bot_rails', '~>4.10.0'
   gem 'faker'
+  gem 'rspec-rails', '~> 3.6.0'
 end
 
 group :development do
@@ -61,4 +63,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

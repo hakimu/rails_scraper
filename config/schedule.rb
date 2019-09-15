@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Use this file to easily define all of your cron jobs.
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.
@@ -19,9 +21,9 @@
 
 # Learn more: http://github.com/javan/whenever
 
-ENV['RAILS_ENV'] = "development"
+ENV['RAILS_ENV'] = 'development'
 
 set :output, 'log/whenever.log'
-every 1.day, :at => '10:20 am' do
-  rake "songs:database" 
+every 1.day, at: '10:20 am' do
+  rake 'songs:database'
 end

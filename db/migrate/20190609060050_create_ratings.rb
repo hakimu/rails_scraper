@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateRatings < ActiveRecord::Migration
   def change
     create_table :ratings do |t|
