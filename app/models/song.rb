@@ -26,4 +26,8 @@ class Song < ActiveRecord::Base
   def self.songs_by_artist(artist)
     where("artist LIKE ?", "%#{artist}%").map { |song| song.title }
   end
+
+  def terrible?
+    average_stars < 2 if average_stars.present?
+  end
 end
