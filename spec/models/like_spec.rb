@@ -15,7 +15,7 @@ RSpec.describe Like, type: :model do
         create(:like, song_id: song.id, user_id: user.id)
         create(:like, song_id: song.id, user_id: user.id)
         expect(song.likes.count).to eq(2)
-      end  
+      end
       it 'calculates the Song with the top likes' do
         user = create(:user)
         popular_song = create(:song)

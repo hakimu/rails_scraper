@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/create'
+
+  get 'users/show'
+
   resources :songs do
     resources :ratings
     resources :likes

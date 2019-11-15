@@ -3,7 +3,7 @@ require 'nokogiri'
 require 'httparty'
 
 module NPR
-  class NPR::Scraper
+  class NPR::Archive
     def call
       songs = []
       parse_title_artist.each do |song|
@@ -15,7 +15,11 @@ module NPR
     private
 
     def scrape_page
-      HTTParty.get('http://www.npr.org/programs/morning-edition/')
+      HTTParty.get("https://www.npr.org/programs/morning-edition/archive?date=1-31-2019")
+    end
+
+    def archive_date
+      parse_scraped_page.at('time[datetime]')['datetime']
     end
 
     def parse_scraped_page
