@@ -6,8 +6,6 @@ class SessionsController < ApplicationController
     user = set_user
     if user && user.authenticate(params[:password])
       # session[:user_id] = user.id
-      puts session.inspect
-      puts "=====I'm logged in===="
     else
       flash.alert = 'Login Failed'
       render 'new'
@@ -15,6 +13,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session[:user_id] = nil
+    redirect_to root_path, notice: 'Logout Successful'
   end
 
   private
