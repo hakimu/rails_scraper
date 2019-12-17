@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_secure_password
   has_many :ratings
   has_many :songs, through: :ratings
   has_many :likes
