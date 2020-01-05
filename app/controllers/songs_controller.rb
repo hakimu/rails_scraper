@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+  before_action :confirm_login
   before_action :set_song, only: [:show, :edit, :update, :destroy]
   respond_to :html, :json
 
@@ -44,14 +45,21 @@ class SongsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_song
-      @song = Song.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def song_params
-      params.require(:song).permit(:title, :artist)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_song
+    @song = Song.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def song_params
+    params.require(:song).permit(:title, :artist)
+  end
+
+  def confirm_login
+    unless current_user
+      redirect_to root_path, alert: 'You must log in.'
     end
+  end
 end
 
