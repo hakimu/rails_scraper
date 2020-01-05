@@ -6,14 +6,13 @@ class SongsController < ApplicationController
   # GET /songs.json
   def index
     @songs = Song.all
-    # render json: @songs
     respond_with(@songs)
   end
 
   # GET /songs/1
   # GET /songs/1.json
   def show
-    render json: @song
+    respond_with(@song)
   end
 
   # GET /songs/1/edit
