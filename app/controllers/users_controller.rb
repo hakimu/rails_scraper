@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     render json: { user: user, songs: songs, likes: user.likes }
   end
 
+  def new
+    @user = User.new
+  end
+
   private
 
   def user_params

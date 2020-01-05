@@ -4,11 +4,11 @@ Rails.application.routes.draw do
 
   get 'login', to: 'sessions#new'
 
-  get 'logout', to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy'
 
   resources :sessions, only: [:new, :create, :destroy]
 
-  get 'sessions', to: 'sessions#new'
+  get 'signup', to: 'sessions#new'
 
   get 'signout', to: 'sessions#destroy'
 

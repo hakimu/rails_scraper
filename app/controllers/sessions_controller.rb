@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
   def create
     user = set_user
     if user && user.authenticate(params[:password])
-      # session[:user_id] = user.id
+      session[:user_id] = user.id
+      redirect_to :songs, notice: "Login Successful"
     else
       flash.alert = 'Login Failed'
       render 'new'
