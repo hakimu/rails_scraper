@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'dotenv-rails', groups: [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.11'
+gem 'rails', '4.2.11.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.3.12'
 gem 'rack', '>= 1.6.11'
@@ -28,13 +28,14 @@ gem 'hirb'
 
 gem 'httparty'
 gem 'nokogiri', '>=1.8.5'
-gem 'pry','0.9.10'
+gem 'pry', '0.9.10'
 gem 'whenever'
 gem 'newrelic_rpm'
 gem 'bundler','1.17.3'
 #gem 'rspec-rails'
 
 gem 'responders'
+gem 'actionview', '>=4.2.11.1'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
