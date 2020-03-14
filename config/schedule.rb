@@ -22,6 +22,7 @@
 ENV['RAILS_ENV'] = "development"
 
 set :output, 'log/whenever.log'
-every 1.day, :at => '10:20 am' do
+env :PATH, ENV['PATH']
+every 1.day, :at => '10:10 am' do
   rake "songs:database" 
 end
