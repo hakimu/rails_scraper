@@ -10,11 +10,14 @@ RSpec.describe SongsController, type: :controller do
     end
     context 'when there is a loggin in user' do
       it 'returns songs' do
-        user = create(:user)
-        session[:user_id] = user.id
+        login_user
         get :index
         expect(response).to have_http_status(:success)
       end
     end
+  end
+  def login_user
+    user = create(:user)
+    session[:user_id] = user.id
   end
 end
