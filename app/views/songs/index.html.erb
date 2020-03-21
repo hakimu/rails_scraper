@@ -1,43 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <% if @songs.empty? %>
-  <p> There are currently no <%= @songs.count %> songs in the database.</p>
+  <p>Hey <%= current_user.username %> you don't have any songs yet.</p>
 <% else %>
-  <p> Yep, there are <%= @songs.count %>  songs that are in the db</p>
+  <p><%= current_user.username %> you have <%= pluralize(@songs.count, 'song') %>.  Do you want to add more?</p>
 <% end %>
 
-<p>The first song is <%= @songs.first.title %></p>
-<p>The last song is <%= @songs.last.title %> and was added <%= @songs.last.updated_at %> </p>
-
+<p>You should check out these...</p>
+<% @ten_songs_this_week.each do |song| %>
+  <%= song.title %><br />
+<% end %>
 
 <%= link_to "Create Song List", new_song_path %>
-
-
-
-<!-- <h1>Listing Songs</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Artist</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @songs.each do |song| %>
-      <tr>
-        <td><%= song.title %></td>
-        <td><%= song.artist %></td>
-        <td><%= link_to 'Show', song %></td>
-        <td><%= link_to 'Edit', edit_song_path(song) %></td>
-        <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Song', new_song_path %> -->
