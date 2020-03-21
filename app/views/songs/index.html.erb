@@ -8,7 +8,7 @@
 
 <p>You should check out these...</p>
 <% @ten_songs_this_week.each do |song| %>
-  <%= song.title %><br />
+  <%= song.title %> by <%= song.artist %><br />
 <% end %>
 
 <%= link_to "Create Song List", new_song_path %>
