@@ -7,7 +7,7 @@ class SongsController < ApplicationController
   # GET /songs.json
   def index
     @songs = current_user.songs
-    @ten_songs_this_week = Song.week_of_songs.first(10)
+    @songs_this_week = Song.week_of_songs
     respond_with(@songs)
   end
 
