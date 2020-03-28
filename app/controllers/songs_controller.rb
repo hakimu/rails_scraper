@@ -14,7 +14,7 @@ class SongsController < ApplicationController
   # GET /songs/1
   # GET /songs/1.json
   def show
-    response = ::SongJsonResponseBuilder.new(params[:user_id], params[:id]).call
+    response = SongJsonResponseBuilder.new(params[:user_id], params[:id]).call
     respond_to do |format|
       format.html { @song }
       format.json { render json: response}
