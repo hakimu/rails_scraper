@@ -6,7 +6,7 @@ class SongJsonResponseBuilder
   end
 
   def call
-    set_song.likes.map(&:to_json)
+    { user: set_user, song: set_song, likes: set_song.likes, ratings: set_song.ratings }
   end
 
   def set_user
