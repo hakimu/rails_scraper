@@ -4,4 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
   include ApplicationHelper
+  before_action :auth_current_user # Figure out where to place this.  Shouldn't stay here.
+
+  def auth_current_user
+  end
 end

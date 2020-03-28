@@ -1,3 +1,5 @@
+require_relative '../services/song_json_response_builder'
+
 class SongsController < ApplicationController
   before_action :confirm_login
   before_action :set_song, only: [:show, :edit, :update, :destroy]
@@ -14,7 +16,12 @@ class SongsController < ApplicationController
   # GET /songs/1
   # GET /songs/1.json
   def show
-    respond_with(@song)
+    response = ::SongJsonResponseBuilder.new(params[:user_id], params[:id]).call
+    # respond_with(@song, response)
+    respond_to do |format|
+      format.html { @song }
+      format.json { render json: response}
+    end
   end
 
   # GET /songs/1/edit

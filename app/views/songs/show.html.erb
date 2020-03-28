@@ -10,5 +10,17 @@
   <%= @song.artist %>
 </p>
 
+<p>
+  <strong>Likes: </strong><%= @song.likes.count %><br />
+  <% if @song.likes.empty? %>
+    <%= @song.title %> does not have any likes.
+  <% else %>
+    <% @song.likes.each do |like| %>
+      <%= like.comment %>
+    <% end %>
+    <p><strong>Average stars:</strong> <%= @song.average_stars.to_i %></p>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_song_path(@song) %> |
 <%= link_to 'Back', songs_path %>

@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   get 'users/create'
 
   # get 'users/show'
-  resources :users
+  resources :users do
+    resources :songs
+  end
 
   resources :songs do
     resources :ratings
