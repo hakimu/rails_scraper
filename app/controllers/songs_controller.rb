@@ -1,7 +1,12 @@
 class SongsController < ApplicationController
   before_action :confirm_login
   before_action :set_song, only: [:show, :edit, :update, :destroy]
+  before_action :auth_current_user, only: [:show]
   respond_to :html, :json
+
+  rescue_from NotAuthForSongError do |e|
+    render json: { error: e.message }, status: 401
+  end
 
   # GET /songs
   # GET /songs.json
