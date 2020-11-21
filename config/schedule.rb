@@ -19,10 +19,11 @@
 
 # Learn more: http://github.com/javan/whenever
 
-ENV['RAILS_ENV'] = "development"
+ENV['RAILS_ENV'] = 'development'
 
-set :output, 'log/whenever.log'
+# commenting out to see if it fixes the error in /var/mail
+# set :output, 'log/whenever.log'
 env :PATH, ENV['PATH']
 every 1.day, :at => '10:10 am' do
-  rake "songs:database" 
+  rake 'songs:database'
 end
